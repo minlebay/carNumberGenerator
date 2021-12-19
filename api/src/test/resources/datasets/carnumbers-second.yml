@@ -1,0 +1,7 @@
+CARNUMBERS:
+  - ID: 0
+    PREFIX: "А"
+    NUM: 002
+    SUFFIX: "А"
+    POSTFIX: "А"
+    REPRESENTATION: "А002АА"

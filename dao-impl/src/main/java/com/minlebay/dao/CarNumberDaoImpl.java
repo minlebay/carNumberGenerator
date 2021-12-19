@@ -15,8 +15,8 @@ public class CarNumberDaoImpl implements CarNumberDao {
     protected EntityManager manager;
 
     @Override
-    public List<CarNumber> getAllCarNumbers() {
-        return manager.createQuery("SELECT c FROM CarNumber c order by c.id desc", CarNumber.class)
+    public List<String> getAllCarNumbers() {
+        return manager.createQuery("SELECT c.representation FROM CarNumber c order by c.id desc", String.class)
                 .getResultList();
     }
 

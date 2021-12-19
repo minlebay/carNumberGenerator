@@ -2,7 +2,6 @@ package com.minlebay.api.controller;
 
 import com.minlebay.service.CarNumberService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,12 +13,6 @@ public class CarNumberController {
 
 	public CarNumberController(CarNumberService carNumberService) {
 		this.carNumberService = carNumberService;
-	}
-
-	@GetMapping(value = "/index")
-	public String printWelcome(ModelMap model) {
-		model.addAttribute("messages", carNumberService.getAllCarNumbers());
-		return "number";
 	}
 
 	@GetMapping(value="number/next")

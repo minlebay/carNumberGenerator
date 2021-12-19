@@ -12,3 +12,15 @@ services:
       - PGDATA=${PGDATA}
     ports:
       - 5432:5432
+
+  db_test:
+    container_name: number_generator_db_test
+    image: library/postgres:${POSTGRES_VERSION}
+
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=number_generator_db_test
+      - PGDATA=${PGDATATEST}
+    ports:
+      - 5434:5432

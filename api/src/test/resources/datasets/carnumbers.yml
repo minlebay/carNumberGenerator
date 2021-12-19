@@ -1,0 +1,7 @@
+CARNUMBERS:
+  - ID: 0
+    PREFIX: "Х"
+    NUM: 999
+    SUFFIX: "Х"
+    POSTFIX: "Х"
+    REPRESENTATION: "Х999ХХ"

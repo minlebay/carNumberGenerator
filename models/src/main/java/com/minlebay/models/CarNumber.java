@@ -3,14 +3,13 @@ package com.minlebay.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.text.DecimalFormat;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name="carnumbers")
+@Table(name = "carnumbers")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class CarNumber {
 

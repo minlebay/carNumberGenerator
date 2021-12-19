@@ -6,7 +6,6 @@ import com.minlebay.util.CarNumberGenerator;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,15 +23,7 @@ public class CarNumberServiceImpl implements CarNumberService {
     @Override
     @Transactional(readOnly=true)
     public List<String> getAllCarNumbers() {
-        List<CarNumber> carNumbers = carNumberDao.getAllCarNumbers();
-        List<String> carNumbersList = new ArrayList<>();
-        carNumbers.forEach(carNumber ->
-                carNumbersList.add(carNumber.getPrefix()
-                        + carNumber.getNum()
-                        + carNumber.getPostfix()
-                        + REGION)
-        );
-        return carNumbersList;
+        return carNumberDao.getAllCarNumbers();
     }
 
     @Override

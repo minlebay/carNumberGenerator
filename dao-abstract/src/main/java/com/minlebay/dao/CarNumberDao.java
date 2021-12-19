@@ -5,7 +5,7 @@ import com.minlebay.models.CarNumber;
 import java.util.List;
 
 public interface CarNumberDao {
-    List<CarNumber> getAllCarNumbers();
+    List<String> getAllCarNumbers();
 
     CarNumber getLastCarNumber();
 
