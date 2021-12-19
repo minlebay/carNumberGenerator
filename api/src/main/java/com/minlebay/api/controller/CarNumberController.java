@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CarNumberController {
 
-	private final CarNumberService carNumberService;
+    private final CarNumberService carNumberService;
 
-	public CarNumberController(CarNumberService carNumberService) {
-		this.carNumberService = carNumberService;
-	}
+    public CarNumberController(CarNumberService carNumberService) {
+        this.carNumberService = carNumberService;
+    }
 
-	@GetMapping(value="number/next")
-	public String getNext() {
-		return carNumberService.getNext();
-	}
+    @GetMapping(value = "number/next")
+    public String getNext() {
+        return carNumberService.getNext();
+    }
 
-	@GetMapping(value="number/random")
-	public String getRandom() {
-		return carNumberService.getRandom();
-	}
+    @GetMapping(value = "number/random")
+    public String getRandom() {
+        return carNumberService.getRandom();
+    }
 }

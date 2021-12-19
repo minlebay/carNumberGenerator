@@ -6,8 +6,6 @@ import com.minlebay.util.CarNumberGenerator;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 public class CarNumberServiceImpl implements CarNumberService {
 
@@ -18,12 +16,6 @@ public class CarNumberServiceImpl implements CarNumberService {
     public CarNumberServiceImpl(CarNumberDao carNumberDao, CarNumberGenerator carNumberGenerator) {
         this.carNumberDao = carNumberDao;
         this.carNumberGenerator = carNumberGenerator;
-    }
-
-    @Override
-    @Transactional(readOnly=true)
-    public List<String> getAllCarNumbers() {
-        return carNumberDao.getAllCarNumbers();
     }
 
     @Override

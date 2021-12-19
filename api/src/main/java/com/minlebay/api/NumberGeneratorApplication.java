@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EntityScan("com.minlebay.models")
 @EnableJpaRepositories("com.minlebay.dao")
-@SpringBootApplication(scanBasePackages = "com.minlebay", exclude = { SecurityAutoConfiguration.class })
+@SpringBootApplication(scanBasePackages = "com.minlebay", exclude = {SecurityAutoConfiguration.class})
 public class NumberGeneratorApplication {
 
     public static void main(String[] args) {
