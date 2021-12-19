@@ -6,6 +6,7 @@ There are two way to generate car numbers:
 2. random number - endpoint /number/random
 
 First, the numeric characters are iterated, and only after that the alphabetic characters are iterated. 
-Numbers are not repeated
+Numbers are not repeated.
 
-For convenience, put the docker-compose file in the db_docker package
+For convenience, put the docker-compose file in the db_docker package.
+Tests use second database, select maven profile before running them.
