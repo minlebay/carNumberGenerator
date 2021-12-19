@@ -62,13 +62,12 @@ public class CarNumberGenerator {
             newCarNumber.setPostfix(lastCarNumber.getPostfix());
         }
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(newCarNumber.getPrefix())
-                .append(new DecimalFormat("000").format(newCarNumber.getNum()))
-                .append(newCarNumber.getSuffix())
-                .append(newCarNumber.getPostfix());
+        String stringBuilder = newCarNumber.getPrefix() +
+                new DecimalFormat("000").format(newCarNumber.getNum()) +
+                newCarNumber.getSuffix() +
+                newCarNumber.getPostfix();
 
-        newCarNumber.setRepresentation(stringBuilder.toString());
+        newCarNumber.setRepresentation(stringBuilder);
 
         // recursive try next again if new "next" number is exists
         if (carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
@@ -88,13 +87,12 @@ public class CarNumberGenerator {
         newCarNumber.setSuffix(alphabet.get(random.nextInt(11)));
         newCarNumber.setPostfix(alphabet.get(random.nextInt(11)));
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(newCarNumber.getPrefix())
-                .append(new DecimalFormat("000").format(newCarNumber.getNum()))
-                .append(newCarNumber.getSuffix())
-                .append(newCarNumber.getPostfix());
+        String stringBuilder = newCarNumber.getPrefix() +
+                new DecimalFormat("000").format(newCarNumber.getNum()) +
+                newCarNumber.getSuffix() +
+                newCarNumber.getPostfix();
 
-        newCarNumber.setRepresentation(stringBuilder.toString());
+        newCarNumber.setRepresentation(stringBuilder);
 
         if (carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
             return getNextCarNumber(newCarNumber);

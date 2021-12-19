@@ -6,19 +6,12 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import java.util.List;
 
 @Repository
 public class CarNumberDaoImpl implements CarNumberDao {
 
     @PersistenceContext
     protected EntityManager manager;
-
-    @Override
-    public List<String> getAllCarNumbers() {
-        return manager.createQuery("SELECT c.representation FROM CarNumber c order by c.id desc", String.class)
-                .getResultList();
-    }
 
     @Override
     public CarNumber getLastCarNumber() {
