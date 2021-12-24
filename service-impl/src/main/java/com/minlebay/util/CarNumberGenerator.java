@@ -69,7 +69,7 @@ public class CarNumberGenerator {
 
         newCarNumber.setRepresentation(stringBuilder);
 
-        // recursive try next again if new "next" number is exists
+        // recursive try next again, if new number is exists
         if (carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
             return getNextCarNumber(newCarNumber);
         }
@@ -94,6 +94,7 @@ public class CarNumberGenerator {
 
         newCarNumber.setRepresentation(stringBuilder);
 
+        // recursive try next, if new number is exists
         if (carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
             return getNextCarNumber(newCarNumber);
         }
