@@ -24,7 +24,9 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
         classes = com.minlebay.api.NumberGeneratorApplication.class)
 @AutoConfigureMockMvc
-@DBUnit(schema = "public", caseInsensitiveStrategy = Orthography.LOWERCASE)
+@DBUnit(schema = "public",
+        url = "jdbc:postgresql://localhost:5434/number_generator_db_test",
+        caseInsensitiveStrategy = Orthography.LOWERCASE)
 @TestExecutionListeners(value = CarNumberDBRiderTestExecutionListener.class,
         mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS)
 @NoArgsConstructor
