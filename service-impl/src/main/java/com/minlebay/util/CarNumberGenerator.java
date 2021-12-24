@@ -65,11 +65,11 @@ public class CarNumberGenerator {
         return newCarNumber;
     }
 
-    public CarNumber getRandomCarNumber() {
+    public CarNumber getRandomCarNumber(Random random) {
 
         TreeMap<Integer, Character> alphabet = Alphabet.getLiterals();
         CarNumber newCarNumber = new CarNumber();
-        Random random = new Random();
+
         newCarNumber.setPrefix(alphabet.get(random.nextInt(11)));
         newCarNumber.setNum(random.nextInt(999));
         newCarNumber.setSuffix(alphabet.get(random.nextInt(11)));

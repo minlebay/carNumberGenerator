@@ -6,10 +6,13 @@ import com.minlebay.util.CarNumberGenerator;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Random;
+
 @Service
 public class CarNumberServiceImpl implements CarNumberService {
 
     private static final String REGION = " 116 RUS";
+    private final Random random = new Random();
     private final CarNumberDao carNumberDao;
     private final CarNumberGenerator carNumberGenerator;
 
@@ -49,7 +52,7 @@ public class CarNumberServiceImpl implements CarNumberService {
         CarNumber newCarNumber = null;
         while (newCarNumber == null
                 || carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
-            newCarNumber = carNumberGenerator.getRandomCarNumber();
+            newCarNumber = carNumberGenerator.getRandomCarNumber(random);
         }
         carNumberDao.add(newCarNumber);
         return newCarNumber.getRepresentation() + REGION;
