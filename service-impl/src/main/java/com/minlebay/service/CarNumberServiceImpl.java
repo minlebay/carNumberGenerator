@@ -34,7 +34,11 @@ public class CarNumberServiceImpl implements CarNumberService {
             return "A000AA" + REGION;
         }
 
-        CarNumber newCarNumber = carNumberGenerator.getNextCarNumber(lastCarNumber);
+        CarNumber newCarNumber = null;
+        while (newCarNumber == null
+                || carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
+            newCarNumber = carNumberGenerator.getNextCarNumber(lastCarNumber);
+        }
         carNumberDao.add(newCarNumber);
         return newCarNumber.getRepresentation() + REGION;
     }
@@ -42,7 +46,11 @@ public class CarNumberServiceImpl implements CarNumberService {
     @Override
     @Transactional
     public String getRandom() {
-        CarNumber newCarNumber = carNumberGenerator.getRandomCarNumber();
+        CarNumber newCarNumber = null;
+        while (newCarNumber == null
+                || carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
+            newCarNumber = carNumberGenerator.getRandomCarNumber();
+        }
         carNumberDao.add(newCarNumber);
         return newCarNumber.getRepresentation() + REGION;
     }

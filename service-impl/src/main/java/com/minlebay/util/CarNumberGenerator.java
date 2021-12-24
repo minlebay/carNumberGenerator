@@ -1,6 +1,5 @@
 package com.minlebay.util;
 
-import com.minlebay.dao.CarNumberDao;
 import com.minlebay.models.CarNumber;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +10,6 @@ import java.util.TreeMap;
 
 @Service
 public class CarNumberGenerator {
-
-    private final CarNumberDao carNumberDao;
-
-    public CarNumberGenerator(CarNumberDao carNumberDao) {
-        this.carNumberDao = carNumberDao;
-    }
 
     public CarNumber getNextCarNumber(CarNumber lastCarNumber) {
 
@@ -69,11 +62,6 @@ public class CarNumberGenerator {
 
         newCarNumber.setRepresentation(stringBuilder);
 
-        // recursive try next again, if new number is exists
-        if (carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
-            return getNextCarNumber(newCarNumber);
-        }
-
         return newCarNumber;
     }
 
@@ -94,10 +82,6 @@ public class CarNumberGenerator {
 
         newCarNumber.setRepresentation(stringBuilder);
 
-        // recursive try next, if new number is exists
-        if (carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
-            return getNextCarNumber(newCarNumber);
-        }
         return newCarNumber;
     }
 }
