@@ -23,7 +23,7 @@ public class CarNumberServiceImpl implements CarNumberService {
 
     @Override
     @Transactional
-    public String getNext() {
+    public synchronized String getNext() {
 
         CarNumber lastCarNumber = carNumberDao.getLastCarNumber();
         if (lastCarNumber == null) {
@@ -48,7 +48,7 @@ public class CarNumberServiceImpl implements CarNumberService {
 
     @Override
     @Transactional
-    public String getRandom() {
+    public synchronized String getRandom() {
         CarNumber newCarNumber = null;
         while (newCarNumber == null
                 || carNumberDao.getCarNumberByRepresentation(newCarNumber.getRepresentation()) != null) {
